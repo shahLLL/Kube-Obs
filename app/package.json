@@ -1,0 +1,21 @@
+{
+  "name": "node-obs-api",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "install:all": "npm install && npm install --save-dev nodemon",
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "docker:build": "docker build -t node-obs-api .",
+    "docker:run": "docker run -p 3000:3000 node-obs-api",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.0",
+    "express": "^5.2.1",
+    "prom-client": "^15.1.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}
