@@ -6,6 +6,12 @@ metadata:
     app: node-api
 spec:
   replicas: 2
+  revisionHistoryLimit: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
   selector:
     matchLabels:
       app: node-api
@@ -19,24 +25,22 @@ spec:
         image: node-obs-api:latest
         imagePullPolicy: Never
         ports:
-        - containerPort: 3000
+        - containerPort: 4000
         env:
         - name: PORT
-          value: "3000"
-        # --- HEALTH CHECKS ---
+          value: "4000"
         livenessProbe:
           httpGet:
             path: /healthz
-            port: 3000
+            port: 4000
           initialDelaySeconds: 5
           periodSeconds: 10
         readinessProbe:
           httpGet:
             path: /ready
-            port: 3000
+            port: 4000
           initialDelaySeconds: 5
           periodSeconds: 10
-        # --- RESOURCE LIMITS ---
         resources:
           limits:
             cpu: "500m"

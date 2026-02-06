@@ -5,11 +5,11 @@ metadata:
   labels:
     app: node-api
 spec:
+  type: LoadBalancer # RESTORED: This exposes the service externally
   selector:
     app: node-api
   ports:
     - name: web
       protocol: TCP
-      port: 80
-      targetPort: 3000
-  type: ClusterIP
+      port: 4000       # Port for Postman: http://localhost:4000
+      targetPort: 4000 # Matches the containerPort in your deployment
