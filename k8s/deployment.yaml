@@ -22,8 +22,8 @@ spec:
     spec:
       containers:
       - name: node-api
-        image: node-obs-api:latest
-        imagePullPolicy: Never
+        image: shahlll/kube-obs-api:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 4000
         env:
