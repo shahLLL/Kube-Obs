@@ -4,11 +4,11 @@ metadata:
   name: node-api-monitor
   namespace: monitoring
   labels:
-    release: prometheus
+    release: monitoring
 spec:
   namespaceSelector:
     matchNames:
-      - default 
+      - default
   selector:
     matchLabels:
       app: node-api
@@ -17,3 +17,4 @@ spec:
     path: /metrics
     interval: 15s
     honorLabels: true
+    scheme: http
