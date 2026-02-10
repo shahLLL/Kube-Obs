@@ -4,6 +4,7 @@
   "main": "app.js",
   "scripts": {
     "install:all": "npm install && npm install --save-dev nodemon",
+    "clean": "rm -rf node_modules",
     "start": "node app.js",
     "dev": "nodemon app.js",
     "docker:build": "docker build -t node-obs-api .",
